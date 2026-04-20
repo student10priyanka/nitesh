@@ -1,0 +1,23 @@
+name: My First Workflow
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print message
+        run: echo "Hello Navya 👋"
+
+  say-bye:
+    needs: say-hello   # 👈 this creates order
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print goodbye
+        run: echo "Goodbye Priyanka 👋"
